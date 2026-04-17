@@ -1,0 +1,14 @@
+[
+  {
+    "nome": "Grupo de Memes",
+    "descricao": "Os melhores memes atualizados todos os dias",
+    "link": "https://chat.whatsapp.com/seulink",
+    "vip": false
+  },
+  {
+    "nome": "Renda Extra",
+    "descricao": "Dicas reais pra ganhar dinheiro online",
+    "link": "https://chat.whatsapp.com/seulink2",
+    "vip": true
+  }
+]
