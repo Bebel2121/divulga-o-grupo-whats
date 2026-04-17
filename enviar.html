@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divulgar Grupo</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* INPUT */
+.input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  box-shadow: 0 0 10px #00bfff;
+}
+
+/* BOTÕES */
+.btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #00bfff;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00bfff;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* BOTÃO VOLTAR (CORRIGIDO 🔥) */
+.btn-voltar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+
+  background: #00bfff;
+  color: black;
+
+  padding: 10px 15px;
+  border-radius: 50px;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  border: none;
+  cursor: pointer;
+
+  box-shadow: 0 0 15px #00bfff;
+  z-index: 999;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>📢 Divulgar Grupo</header>
+
+<div class="hero">
+
+  <div class="card" style="max-width: 400px; margin: auto;">
+
+    <h2 style="text-align:center; margin-bottom:20px; text-shadow:0 0 15px #00bfff;">
+      Envie seu Grupo 🚀
+    </h2>
+
+    <input id="nome" placeholder="Nome do grupo" class="input"><br><br>
+    <input id="descricao" placeholder="Descrição" class="input"><br><br>
+    <input id="link" placeholder="Link do WhatsApp" class="input"><br><br>
+
+    <h3 style="text-align:center;">💰 Plano VIP</h3>
+
+    <select id="vip" class="input">
+      <option value="0">Grátis</option>
+      <option value="1">1 dia - R$2,50</option>
+      <option value="2">2 dias - R$5,00</option>
+      <option value="3">3 dias - R$8,00</option>
+      <option value="4">4 dias - R$11,50</option>
+      <option value="5">5 dias - R$15,00</option>
+    </select>
+
+    <br><br>
+
+    <button class="btn" onclick="copiarPix()">📋 Copiar Pix</button>
+    <button class="btn" onclick="abrirWhats()">💬 Enviar</button>
+
+  </div>
+
+</div>
+
+<!-- BOTÃO VOLTAR CORRIGIDO -->
+<button class="btn-voltar" onclick="window.location.href='index.html'">
+  ⬅️ Voltar
+</button>
+
+<script>
+function copiarPix() {
+  const pix = "16267385728";
+
+  navigator.clipboard.writeText(pix)
+    .then(() => {
+      alert("✅ Pix copiado!");
+    })
+    .catch(() => {
+      alert("❌ Copie manualmente: " + pix);
+    });
+}
+
+function abrirWhats() {
+  const nome = document.getElementById("nome").value;
+  const descricao = document.getElementById("descricao").value;
+  const link = document.getElementById("link").value;
+  const planoValor = document.getElementById("vip").value;
+
+  let planoTexto = "Grátis";
+
+  if (planoValor == "1") planoTexto = "1 dia - R$2,50";
+  if (planoValor == "2") planoTexto = "2 dias - R$5,00";
+  if (planoValor == "3") planoTexto = "3 dias - R$8,00";
+  if (planoValor == "4") planoTexto = "4 dias - R$11,50";
+  if (planoValor == "5") planoTexto = "5 dias - R$15,00";
+
+  let msg = `🚀 *NOVA DIVULGAÇÃO* 🚀
+
+📌 Nome: ${nome}
+📝 Descrição: ${descricao}
+🔗 Link: ${link}
+
+💰 Plano: ${planoTexto}
+
+${planoValor == "0" ? "📢 Gratuito" : "✅ Já paguei!"}
+
+🔥 Aguardo aprovação!`;
+
+  const numero = "5521990682259";
+
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
