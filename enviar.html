@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Divulgar Grupo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>📢 Divulgar Grupo</h2>
+
+<input id="nome" placeholder="Nome do grupo"><br><br>
+<input id="descricao" placeholder="Descrição"><br><br>
+<input id="link" placeholder="Link WhatsApp"><br><br>
+
+<h3>💰 Plano VIP</h3>
+
+<select id="vip">
+  <option value="0">Grátis</option>
+  <option value="1">1 dia - R$2,50</option>
+  <option value="2">2 dias - R$5,00</option>
+  <option value="3">3 dias - R$8,00</option>
+  <option value="4">4 dias - R$11,50</option>
+  <option value="5">5 dias - R$15,00</option>
+</select>
+
+<br><br>
+
+<button onclick="copiarPix()">📋 Copiar Pix</button>
+<button onclick="abrirWhats()">💬 Enviar Comprovante</button>
+
+<script>
+function copiarPix() {
+  const pix = "16267385728";
+
+  navigator.clipboard.writeText(pix)
+    .then(() => {
+      alert("✅ Pix copiado!");
+    })
+    .catch(() => {
+      alert("❌ Não foi possível copiar. Copie manualmente: " + pix);
+    });
+}
+
+function abrirWhats() {
+  const nome = document.getElementById("nome").value;
+  const descricao = document.getElementById("descricao").value;
+  const link = document.getElementById("link").value;
+  const planoValor = document.getElementById("vip").value;
+
+  let planoTexto = "Grátis";
+
+  if (planoValor == "1") planoTexto = "1 dia - R$2,50";
+  if (planoValor == "2") planoTexto = "2 dias - R$5,00";
+  if (planoValor == "3") planoTexto = "3 dias - R$8,00";
+  if (planoValor == "4") planoTexto = "4 dias - R$11,50";
+  if (planoValor == "5") planoTexto = "5 dias - R$15,00";
+
+  let msg = `🚀 *NOVA DIVULGAÇÃO DE GRUPO* 🚀
+
+📌 *Nome do Grupo:* ${nome}
+📝 *Descrição:* ${descricao}
+🔗 *Link:* ${link}
+
+💰 *Plano:* ${planoTexto}
+
+${planoValor == "0" ? "📢 Solicitação gratuita" : "✅ Já realizei o pagamento!"}
+
+📎 Segue o comprovante abaixo 👇
+
+🔥 Aguardo aprovação!`;
+
+  const numero = "5521990682259";
+
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+
+  window.open(url, "_blank");
+}
+</script>
+</body>
+</html>
