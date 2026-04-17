@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupos WhatsApp</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #020617;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .hero {
+      padding: 40px 20px;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      text-shadow: 0 0 10px #0ea5e9;
+    }
+
+    .hero button {
+      margin-top: 20px;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 10px;
+      background: #0ea5e9;
+      color: black;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #0ea5e9;
+    }
+
+    #lista-grupos {
+      padding: 20px;
+    }
+
+    .top-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #0ea5e9;
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px #0ea5e9;
+    }
+
+    .float-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0ea5e9;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      color: black;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 0 20px #0ea5e9;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<header>📱 Grupos WhatsApp</header>
+
+<div class="hero">
+  <h1>🔥 Entre nos melhores grupos do WhatsApp</h1>
+
+  <button onclick="document.getElementById('lista-grupos').scrollIntoView({behavior:'smooth'})">
+    Explorar Grupos
+  </button>
+</div>
+
+<a href="./enviar.html" class="top-btn">+ Divulgar Grupo</a>
+
+<!-- GRUPOS VÃO CARREGAR AQUI -->
+
+<div id="lista-grupos"></div>
+
+<a href="./enviar.html" class="float-btn">+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>
